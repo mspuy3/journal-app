@@ -1,4 +1,4 @@
 class Glue < ApplicationRecord
-   belongs_to :labels
-   belongs_to :tasks
+   belongs_to :label
+   belongs_to :task
 end
