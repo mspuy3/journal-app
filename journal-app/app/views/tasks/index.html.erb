@@ -1,10 +1,11 @@
 <h3 class="text-maroon px-3 ubuntu-font text-center pt-3 mt-5">Tasks</h3>
 
-
 <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
    
 
    <% @tasks.reverse_each do |task| %>
+
+      <% if task.user == current_user %>
 
       <div class="bg-light border-0 card m-4 shadow d-flex flex-column justify-content-between" style="width: 18rem; height: auto;">
 
@@ -15,7 +16,7 @@
                <h6 class="card-subtitle mb-2 text-muted">Deadline: <%= task.task_deadline ? task.task_deadline.utc.localtime.strftime('%d %b %Y %I:%M %p') : 'None' %> </h6>
                <h6 class="card-subtitle mb-2 text-muted">Done: <%= task.task_done %> </h6>
                <p class="card-text"><%= task.task_details[0, 50]... %></p>
-               <small class="card-text text-muted sm">(<%= task.created_at.utc.localtime.strftime('%d %b %Y %I:%M %p') %>)</small> 
+               <small class="card-text text-muted sm">(<%= task.created_at.utc.localtime.strftime('%d %b %Y %I:%M %p') %>)</small>
             </div>
          
          <% end %>
@@ -35,6 +36,7 @@
 
       </div>
 
+      <% end %>
    <% end %>
 
 </div>

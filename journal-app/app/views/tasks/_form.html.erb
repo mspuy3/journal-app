@@ -24,6 +24,8 @@
          <%= t.datetime_local_field :task_deadline, placeholder: "Task Deadlines", class: "text-center form-control mb-2" %>
          <%= t.hidden_field :task_done, :value => 0 %>
 
+         <%= t.number_field :user_id, id: :task_user_id, class: 'form-control', value: current_user.id, type: :hidden %>
+
          <p>Choose Label:</p>
          
 
@@ -31,14 +33,17 @@
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Choose Label/s
             </button> %>
-               <div class="form-check form-switch d-flex">
-                  <%# <%= t.collection_check_boxes :label_ids, Label.all, :id, :label_name %>
+               <div class="form-check form-switch d-flex flex-row flex-wrap">
+                  
                   <%= t.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |l| %>
-                     <%= l.label class:"dropdown-item" do %>
-                        <div>
-                        <%= l.check_box class: 'form-check-input bg-warning border-0'%> <%= l.label class: 'form-check-label rounded'%>
-                        </div>
-                     <%end%>
+                        <% if l.object.user_id == current_user.id %>
+                           <%= l.label class:"" do %>
+                              <div class="" style="width: 15vw">
+                                 <%= l.check_box class: 'form-check-input bg-warning border-0' %> 
+                                 <%= l.label class: 'form-check-label'%>
+                              </div>
+                           <%end%>
+                        <%end%>
                   <% end %>
                </div>
          <%# </div> %>

@@ -1,15 +1,19 @@
 class LabelsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy, :show]
 
   def index
     @labels = Label.all
   end
 
   def new
-    @label = Label.new
+    # @label = Label.new
+    @label = current_user.labels.build
   end
 
   def create
     @label = Label.new(label_params)
+    @label = current_user.labels.build(label_params)
 
     if @label.save
      redirect_to tasks_path
@@ -42,10 +46,16 @@ class LabelsController < ApplicationController
     redirect_to labels_path
   end
 
+
+  def correct_user
+    @label = current_user.labels.find_by(id: params[:id])
+    redirect_to labels_path, notice: "Can't Change This!" if @label.nil?
+  end
+
   private
 
   def label_params
-   params.require(:label).permit(:label_name, :label_details)
+   params.require(:label).permit(:label_name, :label_details, :user_id)
   end
 
 end
