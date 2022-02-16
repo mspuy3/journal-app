@@ -27,3 +27,5 @@
 ## Known Bugs
 - Bootstrap JS files not working
 - Cannot delete User if it still has a task with category
+
+## Latest repo
