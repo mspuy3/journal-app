@@ -1,7 +1,10 @@
-<h3 class="text-maroon px-3 ubuntu-font text-center pt-3 mt-5">Tasks</h3>
+<h3 class="text-maroon px-3 ubuntu-font text-center pt-3 mt-2">Tasks</h3>
+
+<div data-controller="task-form" class="d-flex flex-row align-items-center justify-content-center">
+   <%= render "today" %>
+</div>
 
 <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
-   
 
    <% @tasks.reverse_each do |task| %>
 

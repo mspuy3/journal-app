@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :tasks, :dependent => :delete_all
   has_many :labels, :dependent => :delete_all
+  
+  has_many :glues, :dependent => :delete_all
 end
