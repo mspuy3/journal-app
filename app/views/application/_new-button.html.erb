@@ -1,0 +1,28 @@
+<!-- Button trigger modal -->
+
+<div class="fixed-bottom w-100 d-flex justify-content-end p-5">
+<button type="button" class="btn btn-outline-warning btn-lg border-0 rounded-circle bouncyEffect" data-bs-toggle="modal" data-bs-target="#newButton">
+  <h1 class="personal-logo">✏️</h1>
+</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="newButton" tabindex="-1" aria-labelledby="newButtonLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+     
+    <div class="modal-content d-flex flex-column align-items-center bg-transparent border-0">
+
+      <button type="button" class="personal-logo my-3 btn-outline-warning btn-lg border-0 bg-transparent rounded-circle" data-bs-dismiss="modal" aria-label="Close">❌</button>
+      
+      <div class="maroon p-2 my-3 rounded shadow">
+        <%= link_to 'New Task 🗒️', new_task_path, class: "ubuntu-font text-light text-decoration-none darken" %>
+      </div>
+
+      <div class="maroon p-2 my-3 rounded shadow">
+        <%= link_to 'New Label 🏷️', new_label_path, class: "ubuntu-font text-light text-decoration-none darken" %>
+      </div>
+
+      
+      
+    </div>
+  </div>
+</div>

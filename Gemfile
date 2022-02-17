@@ -34,9 +34,13 @@ gem 'pry-doc'
 
 # gem 'bootstrap', '~> 5.1.3'
 
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 
 gem 'devise'
+
+group :assets do
+  gem 'jquery-rails'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

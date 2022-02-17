@@ -11,43 +11,50 @@
    <% end %>
 </div>
 
-<div class="d-flex flex-row flex-wrap justify-content-center pt-5 mt-5">
+<div class="d-flex flex-row flex-wrap justify-content-center pt-2 mt-2">
 
    <div class="card m-3 shadow d-flex flex-column justify-content-between bg-light border-0" style="width: 50rem;">
 
       
       <div class="card-body d-flex flex-column justify-content-between">
+         <%= t.number_field :user_id, id: :task_user_id, class: 'form-control', value: current_user.id, type: :hidden %>
+         <%= t.hidden_field :task_done, :value => 0 %>
+         
          <%= t.text_field :task_name, placeholder: "Task Name", class: "text-center form-control mb-2" %>
          <br>
          <%= t.text_area :task_details, placeholder: "Task Details", class: "text-center form-control mb-2" %>
          <br>
+         <div class="d-flex flex-row flex-wrap">
          
-         <%= t.datetime_local_field :task_deadline, class: "text-center form-control mb-2" %>
-         <%= t.hidden_field :task_done, :value => 0 %>
-
-         <%= t.number_field :user_id, id: :task_user_id, class: 'form-control', value: current_user.id, type: :hidden %>
-
-         <p>Choose Label:</p>
+            <%= t.datetime_local_field :task_deadline, class: "text-center form-control w-50" %>
          
+            <button class="btn btn-outline-warning dropdown w-50">
 
-         <%# <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Choose Label/s
-            </button> %>
-               <div class="form-check form-switch d-flex flex-row flex-wrap">
-                  
-                  <%= t.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |l| %>
-                        <% if l.object.user_id == current_user.id %>
-                           <%= l.label class:"" do %>
-                              <div class="" style="width: 15vw">
-                                 <%= l.check_box class: 'form-check-input bg-warning border-0' %> 
-                                 <%= l.label class: 'form-check-label'%>
-                              </div>
+               <a class="nav-link dropdown-toggle text-danger" href="#" id="labelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="text-maroon ubuntu-font">Label: </span>
+               </a>
+
+               <div class="dropdown-menu w-150" aria-labelledby="labelDropdown">
+                  <div class="form-check form-switch d-flex flex-row flex-wrap">   
+                     <%= t.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |l| %>
+                           <% if l.object.user_id == current_user.id %>
+                              <%= l.label class:"" do %>
+                                 <div class="" style="width: 15vw">
+                                    <%= l.check_box class: 'form-check-input bg-warning border-0' %> 
+                                    <%= l.label class: 'form-check-label'%>
+                                 </div>
+                              <%end%>
                            <%end%>
-                        <%end%>
-                  <% end %>
+                     <% end %>
+                  </div>
                </div>
-         <%# </div> %>
+
+            </button>
+
+         </div>
+
+
+
 
       </div>
       

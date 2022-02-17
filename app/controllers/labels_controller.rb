@@ -16,7 +16,7 @@ class LabelsController < ApplicationController
     @label = current_user.labels.build(label_params)
 
     if @label.save
-     redirect_to tasks_path
+     redirect_to labels_path
     else
      render 'new'
     end
