@@ -1,5 +1,7 @@
 <%= render "new-button" %>
 
+<h2 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">All Labels</h2>
+
 <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
    
    
@@ -12,12 +14,12 @@
             <div class="card-body d-flex flex-column justify-content-between" style="height: 5rem;">
                <h4 class="card-title border-bottom border-warning pb-1 ubuntu-font text-maroon"><%= label.label_name %></h4>
                <p class="card-text"><%= label.label_details ? label.label_details[0, 50]... : 'No Details' %> </p>
-               <small class="card-text text-dark sm">(<%= label.created_at.utc.localtime.strftime('%d %b %Y %I:%M %p') %>)</small>
             </div>
          
          <% end %>
 
-         <div class="d-flex flex-row justify-content-end m-3">
+         <div class="d-flex flex-row justify-content-end m-3 align-items-center">
+         <small class="text-muted mx-2"><%= label.created_at.strftime('%d %b %Y %I:%M %p') %></small>
                <button type="button" class="btn btn-outline-success btn-sm mx-0 border-0"><%= link_to '✏️', edit_label_path(label), class: "text-decoration-none text-white" %></button>
                <button type="button" class="btn btn-outline-danger btn-sm border-0"><%= link_to '❌', label_path(label), method: :delete, data: {confirm: 'Delete chosen blog PERMANENTLY?'}, class: "text-decoration-none text-white" %></button>
          </div>

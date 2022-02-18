@@ -5,7 +5,7 @@
 <% else %>
    <%= render "new-button" %>
 
-   <h1 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">Welcome, <%= current_user.email %>!</h1>
+   <h2 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">Today's Tasks</h2>
 
    <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
 
@@ -41,7 +41,10 @@
                      <%end%>
                   </div>
                </div>
-   
+            
+            <%# <% else %> 
+            <%# <h2 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">🤔none😮</h2> %>
+
             <%end%>  
          <%end%>
       <%end%>
