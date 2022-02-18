@@ -18,19 +18,22 @@
       
       <div class="card-body d-flex flex-column justify-content-between">
          <%= t.number_field :user_id, id: :task_user_id, class: 'form-control', value: current_user.id, type: :hidden %>
-         <%= t.hidden_field :task_done, :value => 0 %>
+         <%# <%= t.hidden_field :task_done, :value => 0 %>
          
-         <%= t.text_field :task_name, placeholder: "Task Name", class: "text-center form-control mb-2" %>
-         <br>
-         <%= t.rich_text_area :task_details, placeholder: "Task Details", class: "form-control mb-2" %>
-         <br>
+         <%= t.text_field :task_name, placeholder: "Task Name", class: "text-center form-control mb-1" %>
 
+         <%= t.rich_text_area :task_details, placeholder: "Task Details", class: "form-control mb-1" %>
          
          <%= t.datetime_local_field :task_deadline, class: "text-center form-control" %>
+         
+         <div class="form-control form-check form-switch mt-4 d-flex justify-content-center bg-light border-0">
+            <%= t.check_box :task_done, class: "form-check-input border-0 bg-dark", id:"customSwitch1" %>
+            <label class="form-check-label mx-1" for="customSwitch1">Toggle when done 😁</label>
+         </div>
       
       </div>
       
-      <div class="d-flex flex-row justify-content-center align-items-center m-3">
+      <div class="d-flex flex-row justify-content-center align-items-center m-1">
 
          <button class="btn dropdown">
 
