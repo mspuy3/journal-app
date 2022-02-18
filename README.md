@@ -9,13 +9,13 @@
 - [X] As a User, I want to edit a task to update task's details
 - [X] As a User, I want to view a task to show task's details
 - [X] As a User, I want to delete a task to lessen my unnecessary daily tasks
-- [ ] As a User, I want to view my tasks for today for me to remind what are my priorities for today
+- [X] As a User, I want to view my tasks for today for me to remind what are my priorities for today
 - [X] As a User, I want to create my account so that I can have my own credentials
 - [X] As s User, I want to login my account so that I can access my account and link my own tasks.
 
 ## Other Details
 - [ ] Use TDD for this project
-- [X] Deploy App to Heroku
+- [X] Deployed App to Heroku
 
 ## Deadline
 - 19 February 2022
@@ -25,6 +25,6 @@
 - Bootstrap styling
 
 ## Known Bugs
-- Bootstrap JS files not working
+- Can set deadline to past
 - Cannot delete User if it still has a task with category
 

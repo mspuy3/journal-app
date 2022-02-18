@@ -1,53 +1,83 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="d-flex flex-row flex-wrap justify-content-center pt-2 mt-2">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="edit-container">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <h3 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">Edit Account </h3>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+        <div class="card m-3 shadow d-flex flex-column justify-content-between bg-light border-0" style="width: 25rem;">
+
+          <div class="card-body d-flex flex-column justify-content-between">
+
+            <div class="field">
+              <%= f.label :email, class: "small" %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-center form-control mb-2" %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :password, class: "small"  %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "text-center form-control", placeholder: "leave blank if you don't want to change it" %>
+              <% if @minimum_password_length %>
+                <em class="text-center"> <%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation, class: "small"  %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-center form-control mb-1" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :current_password, class: "small"  %> <i class="small">(we need your current password to confirm your changes)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "text-center form-control mb-1" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Update", class: "btn btn-success shadow w-100" %>
+            </div>
+
+          </div>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="delete-container">
+
+    <h3 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">Delete My Account</h3>
+
+    <div class="card m-3 shadow d-flex flex-column justify-content-between bg-light border-0" style="width: 25rem;">
+
+      <div class="card-body d-flex flex-column justify-content-between">
+
+        
+
+        <% if current_user.tasks.empty? %>
+
+          <p class="small text-center mb-1">We are sad to see you go! :( 
+          </p>  
+            <%= button_to "Delete My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger w-100" %></p>
+
+        <% else %>
+
+          <p class="small text-center mb-1">Check, Back up, and Delete All of Your Tasks First 
+          </p> 
+          <button class="btn btn-danger w-100 disabled">Delete My Account</button>
+          
+
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
 
-<h3>Delete My Account</h3>
 
-<% if current_user.tasks.empty? %>
 
-<p>We are sad to see you go! :( <%= button_to "Delete My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
 
-<% else %>
+</div>
 
-<p>Check, Back up, and Delete All Your Tasks Before Deleting Account <br> 
-<button class="btn btn-danger disabled">Delete My Account</button>
-</p>
-
-<% end %>
-
-<%= link_to "Back", :back %>

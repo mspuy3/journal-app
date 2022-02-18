@@ -22,45 +22,40 @@
          
          <%= t.text_field :task_name, placeholder: "Task Name", class: "text-center form-control mb-2" %>
          <br>
-         <%= t.text_area :task_details, placeholder: "Task Details", class: "text-center form-control mb-2" %>
+         <%= t.rich_text_area :task_details, placeholder: "Task Details", class: "form-control mb-2" %>
          <br>
-         <div class="d-flex flex-row flex-wrap">
+
          
-            <%= t.datetime_local_field :task_deadline, class: "text-center form-control w-50" %>
-         
-            <button class="btn btn-outline-warning dropdown w-50">
-
-               <a class="nav-link dropdown-toggle text-danger" href="#" id="labelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="text-maroon ubuntu-font">Label: </span>
-               </a>
-
-               <div class="dropdown-menu w-150" aria-labelledby="labelDropdown">
-                  <div class="form-check form-switch d-flex flex-row flex-wrap">   
-                     <%= t.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |l| %>
-                           <% if l.object.user_id == current_user.id %>
-                              <%= l.label class:"" do %>
-                                 <div class="" style="width: 15vw">
-                                    <%= l.check_box class: 'form-check-input bg-warning border-0' %> 
-                                    <%= l.label class: 'form-check-label'%>
-                                 </div>
-                              <%end%>
-                           <%end%>
-                     <% end %>
-                  </div>
-               </div>
-
-            </button>
-
-         </div>
-
-
-
-
+         <%= t.datetime_local_field :task_deadline, class: "text-center form-control" %>
+      
       </div>
       
-      <div class="d-flex flex-row justify-content-center m-3">
+      <div class="d-flex flex-row justify-content-center align-items-center m-3">
+
+         <button class="btn dropdown">
+
+            <a class="nav-link dropdown-toggle text-danger btn-warning rounded shadow text-decoration-none" href="#" id="labelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               <span class="text-maroon ubuntu-font"> Labels </span>
+            </a>
+
+            <div class="dropdown-menu p-2 shadow bg-light" style="height: auto; max-width: 25vw" aria-labelledby="labelDropdown">
+               <div class="form-check form-switch d-flex flex-row flex-wrap bg-light">   
+                  <%= t.collection_check_boxes(:label_ids, Label.all, :id, :label_name) do |l| %>
+                        <% if l.object.user_id == current_user.id %>
+                           <%= l.label class:"" do %>
+                              <div class="" style="width: 15vw">
+                                 <%= l.check_box class: 'form-check-input bg-warning border-0' %> 
+                                 <%= l.label class: 'form-check-label ubuntu-font text-maroon'%>
+                              </div>
+                           <%end%>
+                        <%end%>
+                  <% end %>
+               </div>
+            </div>
+
+         </button>
       
-         <%= link_to 'Cancel', tasks_path, class: "btn btn-danger mx-3 shadow text-decoration-none text-white " %>
+         <%= link_to 'Cancel', tasks_path, class: "btn btn-danger mx-3 shadow text-decoration-none text-white" %>
 
          <%= t.submit 'Create Task', class: "btn btn-success mx-3 shadow" %>
       

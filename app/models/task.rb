@@ -4,6 +4,8 @@ class Task < ApplicationRecord
    has_many :glues, :dependent => :delete_all
    has_many :labels, through: :glues
 
-   validates :task_name,  presence: true
+   has_rich_text :task_details
 
+   validates :task_name,  presence: true
+   
 end
