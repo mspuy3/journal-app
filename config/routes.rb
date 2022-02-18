@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  get '/today', to: 'tasks#today'
+  
   root "tasks#today"
   # root "home#index"
 
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :glues
 
-  get '/today', to: 'tasks#today'
+  
   
 
 end
