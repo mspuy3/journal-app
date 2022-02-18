@@ -1,16 +1,22 @@
 <div class="d-flex flex-column flex-wrap justify-content-center align-items-center pt-5 mt-5 off-white">
 
-      <div class="card m-3 shadow d-flex flex-column justify-content-between bg-light border-0" style="width: 50vw;">
+      <div class="card m-1 shadow d-flex flex-column justify-content-between bg-light border-0" style="width: 75vw;">
 
          
             <div class="card-body d-flex flex-column justify-content-between text-center">
-               <h4 class="card-title ubuntu-font text-maroon border-warning"><%= @task.task_name %></h4>
-               <h6 class="card-subtitle mb-2 text-muted">Deadline: <%= @task.task_deadline ? @task.task_deadline.utc.localtime.strftime('%d %b %Y %I:%M %p') : 'None' %> </h6>
-               <h6 class="card-subtitle mb-2 text-muted">Done: <%= @task.task_done %> </h6>
+               <h4 class="card-title mb-2 ubuntu-font text-maroon border-warning"><%= @task.task_name %></h4>
+
+                  <div class="d-flex flex-row flex-wrap justify-content-center align-items-center my-1">
+                        <button class="maroon p-1 m-1 rounded text-light btn-sm border-0 font-weight-bold">Deadline: <%= @task.task_deadline ? @task.task_deadline.strftime('%d %b %Y %I:%M %p') : 'None' %> </button>
+                        
+                        <button class="maroon p-1 m-1 rounded text-light btn-sm border-0 font-weight-bold">
+                              <%= @task.task_done ? 'Task is done! 😁' : 'Not yet done. 🤡' %> 
+                        </button>
+                   </div>
                <textarea class="card-text text-center bg-light border-0 border-top border-bottom border-warning " style="height: auto; overflow-x: hidden;"><%= @task.task_details%></textarea>
-               <p class="card-text text-muted">Created: <%= @task.created_at.utc.localtime.strftime('%d %b %Y %I:%M %p') %></p> 
+               
             
-            <div class="d-flex align-items-center"> <span class="mx-1"> Labels: </span>
+            <div class="d-flex flex-wrap align-items-center justify-content-center my-1">
                   <% @task.labels.reverse_each do |l| %>
                         <%= link_to label_path(l), class: "text-decoration-none link-dark" do %>
                               <button class="bg-warning p-1 m-1 rounded text-maroon btn-sm border-0"> <%= l.label_name%> </button>
@@ -20,7 +26,8 @@
          
             </div>
 
-         <div class="d-flex flex-row justify-content-center m-3">
+         <div class="d-flex flex-row justify-content-end m-3 mt-1 align-items-center">
+                  <small class="text-muted mx-2">Created: <%= @task.created_at.strftime('%d %b %Y %I:%M %p') %></small> 
                <button type="button" class="btn btn-outline-primary btn-sm border-0"><%= link_to '⬅️', tasks_path, class: "text-decoration-none text-white" %></button>
                <button type="button" class="btn btn-outline-success btn-sm mx-2 border-0"><%= link_to '✏️', edit_task_path(@task), class: "text-decoration-none text-white" %></button>
                <button type="button" class="btn btn-outline-danger btn-sm border-0"><%= link_to '❌', task_path(@task), method: :delete, data: {confirm: 'Delete chosen article PERMANENTLY?'}, class: "text-decoration-none text-white" %></button>

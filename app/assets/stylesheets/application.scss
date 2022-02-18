@@ -15,7 +15,8 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@700&display=swap');
- 
+
+
  * {
    font-family: 'Open Sans', sans-serif;
 }
@@ -87,6 +88,75 @@ font-weight: bold;}
       64%  { transform: scale(1,1)      translateY(0); }
       100% { transform: scale(1,1)      translateY(0); }
    }
+
+
+   .breathingEffect {
+      animation-name: breathingEffect;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+   }
+         
+      @keyframes breathingEffect {
+         0% {
+            -webkit-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+         }
+         
+         25% {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+         }
+         
+         60% {
+            -webkit-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+         }
+         
+         100% {
+            -webkit-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+         }
+   }
+   
+   .shakingEffect {
+      animation: shakingEffect 2s cubic-bezier(.36,.07,.19,.97) infinite;
+   }
+   
+      @keyframes shakingEffect {
+      10%, 90% {
+         transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%, 80% {
+         transform: translate3d(2px, 0, 0);
+      }
+      
+      30%, 50%, 70% {
+         transform: translate3d(-4px, 0, 0);
+      }
+      
+      40%, 60% {
+         transform: translate3d(4px, 0, 0);
+      }
+   }
+   
+   .dancingEffect {
+      animation-name: dancingEffect;
+      animation-duration: 0.125s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+   }
+   
+      @keyframes dancingEffect {
+         0% {transform: rotate(5deg);}
+         100% {transform: rotate(-5deg);}
+      }
+
 
 
    /* width */

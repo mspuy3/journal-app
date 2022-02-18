@@ -7,6 +7,10 @@ class TasksController < ApplicationController
         # @tasks = current_user.tasks.all
     end
 
+    def today
+        @tasks = Task.all
+    end
+
     def new
         # @task = Task.new
         @task = current_user.tasks.build
