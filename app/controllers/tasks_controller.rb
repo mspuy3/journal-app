@@ -3,12 +3,13 @@ class TasksController < ApplicationController
     before_action :correct_user, only: [:edit, :update, :destroy, :show]
 
     def index
-        @tasks = Task.all
-        # @tasks = current_user.tasks.all
+        # @tasks = Task.all
+        @tasks = current_user.tasks.reverse_each
     end
 
     def today
-        @tasks = Task.all
+        # @tasks = Task.all
+        @tasks = current_user.tasks.reverse_each
     end
 
     def new
@@ -28,11 +29,13 @@ class TasksController < ApplicationController
     end
 
     def show
-        @task = Task.find(params[:id])
+        # @task = Task.find(params[:id])
+        @task = current_user.tasks.find(params[:id])
     end
 
     def update
-        @task = Task.find(params[:id])
+        # @task = Task.find(params[:id])
+        @task = current_user.tasks.find(params[:id])
 
         if @task.update(task_params)
             redirect_to @task
@@ -42,11 +45,13 @@ class TasksController < ApplicationController
     end
 
     def edit
-        @task = Task.find(params[:id])
+        # @task = Task.find(params[:id])
+        @task = current_user.tasks.find(params[:id])
     end
 
     def destroy
-        @task = Task.find(params[:id])
+        # @task = Task.find(params[:id])
+        @task = current_user.tasks.find(params[:id])
         @task.destroy
 
         redirect_to tasks_path

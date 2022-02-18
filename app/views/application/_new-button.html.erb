@@ -2,7 +2,7 @@
 
 <div class="fixed-bottom w-100 d-flex justify-content-end p-5">
 <button type="button" class="btn btn-outline-warning btn-lg border-0 rounded-circle shakingEffect breathingEffect" data-bs-toggle="modal" data-bs-target="#newButton">
-  <h1 class="personal-logo">✏️</h1>
+  <span class="personal-logo display-5">✏️</span>
 </button>
 </div>
 <!-- Modal -->
@@ -13,12 +13,12 @@
 
       <button type="button" class="personal-logo my-3 btn-outline-warning btn-lg border-0 bg-transparent rounded-circle" data-bs-dismiss="modal" aria-label="Close">❌</button>
       
-      <div class="maroon p-2 my-3 rounded shadow">
-        <%= link_to 'New Task 🗒️', new_task_path, class: "ubuntu-font text-light text-decoration-none darken" %>
+      <div class="bg-light p-3 my-3 rounded shadow shake">
+        <%= link_to 'New Task 🗒️', new_task_path, class: "ubuntu-font text-maroon text-decoration-none display-6" %>
       </div>
 
-      <div class="maroon p-2 my-3 rounded shadow">
-        <%= link_to 'New Label 🏷️', new_label_path, class: "ubuntu-font text-light text-decoration-none darken" %>
+      <div class="bg-warning p-3 my-3 rounded shadow shake">
+        <%= link_to 'New Label 🏷️', new_label_path, class: "ubuntu-font text-maroon text-decoration-none display-6" %>
       </div>
 
       

@@ -15,7 +15,7 @@
                         </button>
                   </div>
                    
-                  <div class="mx-5 text-justify" style="width=auto"><%= @task.task_details %></div>
+                  <div class="mx-5 text-justify border rounded border-warning p-2" style="width=auto"><%= @task.task_details.empty? ? 'No Details' : @task.task_details %> </div>
                
             
             <div class="d-flex flex-wrap align-items-center justify-content-center m-2">

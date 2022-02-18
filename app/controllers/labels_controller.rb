@@ -3,7 +3,8 @@ class LabelsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy, :show]
 
   def index
-    @labels = Label.all
+    # @labels = Label.all
+    @labels = current_user.labels.reverse_each
   end
 
   def new
@@ -12,7 +13,7 @@ class LabelsController < ApplicationController
   end
 
   def create
-    @label = Label.new(label_params)
+    # @label = Label.new(label_params)
     @label = current_user.labels.build(label_params)
 
     if @label.save
@@ -23,11 +24,13 @@ class LabelsController < ApplicationController
   end
 
   def show
-   @label = Label.find(params[:id])
+  #  @label = Label.find(params[:id])
+   @label = current_user.labels.find(params[:id])
   end
 
   def update
-    @label = Label.find(params[:id])
+    #  @label = Label.find(params[:id])
+   @label = current_user.labels.find(params[:id])
 
     if @label.update(label_params)
      redirect_to @label
@@ -37,11 +40,13 @@ class LabelsController < ApplicationController
   end
 
   def edit
-    @label = Label.find(params[:id])
+    #  @label = Label.find(params[:id])
+   @label = current_user.labels.find(params[:id])
   end
 
   def destroy
-    @label = Label.find(params[:id])
+    #  @label = Label.find(params[:id])
+    @label = current_user.labels.find(params[:id])
     @label.destroy
     redirect_to labels_path
   end

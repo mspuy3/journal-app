@@ -49,14 +49,16 @@
  .text-maroon:hover {color: maroon;
 font-weight: bold;}
 
-//  .card {
-//    transition: transform 0.5s;
-//  }
+ .shake {
+   transition: transform 0.25s;
+   transition: border 0.25s;
+ }
 
-//    .card:hover {
-//       transform: translateY(-10px);
-//       border: 5px solid #F9A01B;
-//    }
+   .shake:hover {
+      // transform: translateY(-10px);
+      // border: 5px solid #F9A01B;
+      animation: shakingEffect 2s cubic-bezier(.36,.07,.19,.97) infinite;
+   }
 
 .btn {
    font-family: 'Ubuntu', sans-serif;

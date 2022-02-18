@@ -3,7 +3,7 @@
 <div>
    <% if @task.errors.any? %>
 
-      <div class="d-flex flex-wrap justify-content-center fixed-bottom m-5">      
+      <div class="d-flex flex-wrap justify-content-center fixed-top m-5">      
             <% @task.errors.full_messages.each do |message| %>
                <div class="alert alert-danger m-3 " role="alert"><%= message %></div>
             <% end %>
@@ -22,20 +22,21 @@
          
          <%= t.text_field :task_name, placeholder: "Task Name", class: "text-center form-control mb-1" %>
 
-         <%= t.rich_text_area :task_details, placeholder: "Task Details", class: "form-control mb-1" %>
+         <%= t.rich_text_area :task_details, placeholder: "Task Details (Optional)", class: "form-control mb-1" %>
          
-         <%= t.datetime_local_field :task_deadline, class: "text-center form-control" %>
-         
-         <div class="form-control form-check form-switch mt-4 d-flex justify-content-center bg-light border-0">
+         <label class="card-text text-center text-muted" for="deadline">Deadline (Optional) </label>
+         <%= t.datetime_local_field :task_deadline, class: "text-center form-control", id: "deadline" %>
+       
+         <div class="form-control form-check form-switch mt-4 d-flex justify-content-center border-0 bg-light">
             <%= t.check_box :task_done, class: "form-check-input border-0 bg-dark", id:"customSwitch1" %>
             <label class="form-check-label mx-1" for="customSwitch1">Toggle when done 😁</label>
          </div>
       
-      </div>
       
-      <div class="d-flex flex-row justify-content-center align-items-center m-1">
+      
+      <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
 
-         <button class="btn dropdown">
+         <button class="btn dropdown m-3">
 
             <a class="nav-link dropdown-toggle text-danger btn-warning rounded shadow text-decoration-none" href="#" id="labelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                <span class="text-maroon ubuntu-font"> Labels </span>
@@ -58,10 +59,11 @@
 
          </button>
       
-         <%= link_to 'Cancel', tasks_path, class: "btn btn-danger mx-3 shadow text-decoration-none text-white" %>
+         <%= link_to 'Cancel', tasks_path, class: "btn btn-danger m-3 shadow text-decoration-none text-white" %>
 
-         <%= t.submit 'Create Task', class: "btn btn-success mx-3 shadow" %>
+         <%= t.submit 'Set Task', class: "btn btn-success m-3 shadow" %>
       
+      </div>
       </div>
    
    </div>
