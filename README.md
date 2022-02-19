@@ -1,6 +1,37 @@
-# journalAppProject
+# Tasks by MU
 
-## User Stories
+A simple Tasks🗒️ recording app with Labels🏷️ available.
+
+## [See it deployed in Heroku!](https://task-mu-33.herokuapp.com/)
+
+## Features
+- Create and use an account that keeps its own Tasks🗒️ and Labels🏷️ private to the signed in user,
+- See all Tasks due today, all tasks, all labels, indiviudal tasks, and individual labels.
+- Create Tasks🗒️ with optional rich-text details, deadline, and labels🏷️.
+- Create and use multiple Labels🏷️ for Tasks🗒️.
+- Toggle Tasks🗒️ to done😁 or not yet done🤡.
+- Filter Tasks🗒️ by Labels🏷️.
+
+## Requirements
+- Ruby 3.0.2
+- Rails 6.1.4
+- devise for Rails
+- action_text for Rails
+- yarn or npm
+- Bootstrap 5.1.3
+- @popperjs/core 2.11.2
+
+
+## ERD
+
+
+
+
+
+
+
+
+# Avion School Details
 ### For this project, 'categories' was renamed to 'label'
 - [X] As a User, I want to create a category that can be used to organize my tasks.
 - [X] As a User, I want to edit a category to update the category's details.
@@ -14,7 +45,7 @@
 - [X] As s User, I want to login my account so that I can access my account and link my own tasks.
 
 ## Other Details
-- [ ] Use TDD for this project
+- [-] Use TDD for this project
 - [X] Deployed App to Heroku
 
 ## Deadline
