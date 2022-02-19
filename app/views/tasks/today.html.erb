@@ -8,9 +8,8 @@
    <h2 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">Today's Tasks</h2>
 
    <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
-
+      
       <% @tasks.reverse_each do |task| %>
-         <% if task.user == current_user %>
             <%if task.task_deadline && task.task_deadline.today? %>
                
                <div class="bg-light border-0 card m-4 shadow d-flex flex-column justify-content-between breathingEffect" style="width: 18rem; height: auto;">
@@ -27,7 +26,7 @@
                               </button>
                         </div>
 
-                        <p class="card-text m-3 text-center">Open to see details</p>
+                        <p class="card-text m-3 text-center text-muted">Open to see details</p>
                      
                      </div>
                   
@@ -42,11 +41,10 @@
                   </div>
                </div>
             
-            <%# <% else %> 
-            <%# <h2 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">🤔none😮</h2> %>
+               <%# <% else %> 
+               <%# <h2 class="text-maroon px-3 ubuntu-font text-center pt-2 mt-2">🤔none😮</h2> %>
 
             <%end%>  
-         <%end%>
       <%end%>
    </div>
 <% end %>
