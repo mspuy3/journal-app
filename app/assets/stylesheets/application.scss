@@ -16,6 +16,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@700&display=swap');
 
+.trix-button-group--file-tools { display: none !important; }
 
  * {
    font-family: 'Open Sans', sans-serif;
@@ -185,3 +186,5 @@ font-weight: bold;}
  ::-webkit-scrollbar-thumb:hover {
    background: #F9A01B; 
  }
+
+ 

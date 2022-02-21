@@ -6,22 +6,22 @@
    
    
 
-   <% @labels.reverse_each do |label| %>
+   <% @labels.each do |label| %>
       
-      <div class="border-0 card m-4 shadow d-flex flex-column justify-content-between bg-warning shake" style="width: 18rem; height: 10rem;">
+      <div class="border-0 card m-4 shadow d-flex flex-column justify-content-between bg-warning" style="width: 20rem; height: 9rem;">
 
          <%= link_to label_path(label), class: "text-decoration-none link-dark" do %>
-            <div class="card-body d-flex flex-column justify-content-between" style="height: 5rem;">
-               <h4 class="card-title border-bottom border-warning pb-1 ubuntu-font text-maroon"><%= label.label_name[0, 15]... %></h4>
-               <p class="card-text"><%= label.label_details ? label.label_details[0, 50]... : 'No Details' %> </p>
+            <div class="card-body d-flex flex-column justify-content-between">
+               <h4 class="card-title border-bottom border-danger pb-1 ubuntu-font text-maroon"><%= label.label_name.truncate(15) %></h4>
+               <p class="card-text"> <%= label.label_details.empty? ? 'No Details' : label.label_details.truncate(10) %> </p>
             </div>
          
          <% end %>
 
-         <div class="d-flex flex-row justify-content-end m-3 align-items-center">
-         <small class="text-muted mx-2"><%= label.created_at.strftime('%d %b %Y %I:%M %p') %></small>
-               <button type="button" class="btn btn-outline-success btn-sm mx-0 border-0"><%= link_to '✏️', edit_label_path(label), class: "text-decoration-none text-white" %></button>
-               <button type="button" class="btn btn-outline-danger btn-sm border-0"><%= link_to '❌', label_path(label), method: :delete, data: {confirm: 'Delete chosen blog PERMANENTLY?'}, class: "text-decoration-none text-white" %></button>
+         <div class="d-flex flex-row justify-content-end align-items-center m-1 ">
+               <small class="text-muted mx-2"> <%= label.tasks.empty? ? 'No Tasks with this Label' : label.tasks.count.to_s + " Task/s Labeled" %> </small>
+               <button type="button" class="btn btn-outline-success mx-0 border-0"><%= link_to '✏️', edit_label_path(label), class: "text-decoration-none text-white" %></button>
+               <button type="button" class="btn btn-outline-danger border-0"><%= link_to '❌', label_path(label), method: :delete, data: {confirm: 'Delete chosen blog PERMANENTLY?'}, class: "text-decoration-none text-white" %></button>
          </div>
 
       </div>

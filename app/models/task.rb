@@ -7,5 +7,6 @@ class Task < ApplicationRecord
    has_rich_text :task_details
 
    validates :task_name,  presence: true
+   validates_uniqueness_of :task_name, scope: :user
    
 end

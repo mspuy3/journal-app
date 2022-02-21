@@ -9,7 +9,7 @@
 
    <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
       
-      <% @tasks.reverse_each do |task| %>
+      <% @tasks.each do |task| %>
             <%if task.task_deadline && task.task_deadline.today? %>
                
                <div class="bg-light border-0 card m-4 shadow d-flex flex-column justify-content-between breathingEffect" style="width: 18rem; height: auto;">

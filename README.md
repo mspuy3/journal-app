@@ -25,12 +25,6 @@ A simple Tasks🗒️ recording app with Labels🏷️ available.
 ## ERD
 
 
-
-
-
-
-
-
 # Avion School Details
 ### For this project, 'categories' was renamed to 'label'
 - [X] As a User, I want to create a category that can be used to organize my tasks.

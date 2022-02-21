@@ -23,10 +23,14 @@
 
     <%= render "header" %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="d-flex flex-wrap justify-content-center fixed-bottom m-5"> 
+      <%if notice || alert %>
+      <p class="notice alert-danger m-3 "><%= notice %></p>
+      <p class="alert alert-danger m-3 "><%= alert %></p>
+      <%end%>
+    </div>
 
-    <div class="container trix-content">
+    <div class="container trix-content mt-5">
        <%= yield %>
     </div>
 
