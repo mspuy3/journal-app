@@ -9,7 +9,14 @@ class TasksController < ApplicationController
 
     def today
         # @tasks = Task.all
+        @tasks_today = []
         @tasks = current_user.tasks.reverse_each
+        @tasks.each do |task|
+            if task.task_deadline && task.task_deadline.today?
+                @tasks_today.push(task)
+            end
+        end
+        @tasks_today
     end
 
     def new

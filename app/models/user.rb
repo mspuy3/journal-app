@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :labels, :dependent => :delete_all
   
   has_many :glues, :dependent => :delete_all
+
+  validates :name, uniqueness: true
+  validates_length_of :name, maximum: 20
 end

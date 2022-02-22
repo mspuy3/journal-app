@@ -49,6 +49,8 @@
       
       <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
 
+         <%= link_to 'Cancel', tasks_path, class: "btn btn-danger m-3 shadow text-decoration-none text-white" %>
+
          <button class="btn dropdown m-3 p-0">
 
             <a class="nav-link dropdown-toggle text-danger btn-warning rounded shadow text-decoration-none" href="#" id="labelDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,8 +74,6 @@
             </div>
 
          </button>
-      
-         <%= link_to 'Cancel', tasks_path, class: "btn btn-danger m-3 shadow text-decoration-none text-white" %>
 
          <%= t.submit 'Set Task', class: "btn btn-success m-3 shadow" %>
       
